@@ -121,7 +121,7 @@
 
 /* the quiet "are you a business?" text link */
 .isl-biz-link {
-    font-size: 0.8rem; color: #47506A; text-decoration: none; white-space: nowrap;
+    font-size: 0.8rem; color: var(--nav-biz-ink); text-decoration: none; white-space: nowrap;
     padding: 0.3rem 0.2rem; transition: color 0.15s var(--ease);
 }
 .isl-biz-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 0.15em; }
@@ -433,7 +433,7 @@ body.menu-lock { overflow: hidden; }
 [data-theme="dark"] .app-shot-glow { background: radial-gradient(ellipse 55% 55% at 50% 40%, rgba(123,118,240,0.26), transparent 70%); }
 .app-phone {
     position: relative; width: min(17rem, 74vw); padding: 0.6rem; border-radius: 2.4rem;
-    background: linear-gradient(165deg, #2b2f63 0%, #1a1d47 100%);
+    background: linear-gradient(165deg, var(--phone-bezel-top) 0%, var(--phone-bezel-bottom) 100%);
     box-shadow: 0 40px 80px -36px rgba(20, 24, 92, 0.6), inset 0 1px 0 rgba(255,255,255,0.14);
     border: 1px solid rgba(201,203,255,0.14);
 }
@@ -455,7 +455,7 @@ body.menu-lock { overflow: hidden; }
     background:
         radial-gradient(56rem 28rem at 88% 4%, rgba(232, 148, 60, 0.14), transparent 60%),
         radial-gradient(52rem 26rem at 4% 100%, rgba(58, 53, 181, 0.10), transparent 62%),
-        linear-gradient(180deg, var(--bg-deep) 0%, #F3EEF6 45%, var(--bg-deep) 100%);
+        linear-gradient(180deg, var(--bg-deep) 0%, var(--band-manifeste) 45%, var(--bg-deep) 100%);
 }
 [data-theme="dark"] .lsec-manifeste {
     background:
@@ -577,7 +577,7 @@ body.menu-lock { overflow: hidden; }
 .isl-footer-brand { display: inline-flex; align-items: center; gap: 0.6rem; color: #fff; text-decoration: none; }
 .isl-footer-mark { display: inline-flex; color: #C9CBFF; }
 .isl-footer-name { font-size: 1.35rem; font-weight: 650; letter-spacing: -0.02em; color: #fff; }
-.isl-footer-tagpill { font-family: var(--font-mono); font-size: 0.62rem; text-transform: lowercase; letter-spacing: 0.05em; color: #EEC79A; background: rgba(232,148,60,0.16); border: 1px solid rgba(232,148,60,0.32); border-radius: 9999px; padding: 0.12rem 0.5rem; align-self: center; }
+.isl-footer-tagpill { font-family: var(--font-mono); font-size: 0.62rem; text-transform: lowercase; letter-spacing: 0.05em; color: var(--footer-tagpill-ink); background: rgba(232,148,60,0.16); border: 1px solid rgba(232,148,60,0.32); border-radius: 9999px; padding: 0.12rem 0.5rem; align-self: center; }
 .isl-footer-tag { color: rgba(237, 238, 250, 0.78); font-size: 0.95rem; line-height: 1.65; max-width: 24rem; margin: 1.1rem 0 1.5rem; }
 .isl-footer-cta { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; font-weight: 550; color: #fff; padding: 0.6rem 1.15rem; border: 1px solid rgba(201, 203, 255, 0.4); border-radius: 9999px; transition: background 0.2s var(--ease), border-color 0.2s var(--ease); }
 .isl-footer-cta:hover { color: #fff; background: rgba(123, 118, 240, 0.22); border-color: rgba(201, 203, 255, 0.7); }
