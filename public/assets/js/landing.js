@@ -131,31 +131,20 @@
         } catch (e) { /* leave the fallback href="#" */ }
     });
 
-    // ── Footer service status (codequill pattern) ────────────────────────
-    // Default is operational (server-rendered). We try the status page's
-    // uptime-kuma API and only downgrade the dot if it confirms an incident or
-    // maintenance; any error keeps the operational state silently.
-    var statusEls = document.querySelectorAll('[data-status-footer]');
-    if (statusEls.length) {
-        var lang = (document.documentElement.lang || 'fr').slice(0, 2) === 'en' ? 'en' : 'fr';
-        var STATUS_LABELS = {
-            operational: { fr: 'Operationnel', en: 'Operational' },
-            degraded: { fr: 'Maintenance en cours', en: 'Under maintenance' },
-            down: { fr: 'Incident en cours', en: 'Active incident' }
+    // ── Manifesto textarea: auto-grow to fit its content ─────────────────
+    // The ready-to-send message must be fully visible (including the Agreely
+    // line) without an inner scrollbar. rows="12" is the no-JS fallback; here
+    // we grow the box to its content and keep it in sync on edit / resize.
+    var mMsg = document.getElementById('manifestoMessage');
+    if (mMsg) {
+        var growMsg = function () {
+            mMsg.style.height = 'auto';
+            mMsg.style.height = mMsg.scrollHeight + 'px';
         };
-        fetch('https://status.agreely.ca/api/status-page/agreely', { cache: 'no-store' })
-            .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-            .then(function (data) {
-                var hasIncident = !!(data && data.incident);
-                var maint = !!(data && Array.isArray(data.maintenanceList) && data.maintenanceList.length);
-                var status = hasIncident ? 'down' : maint ? 'degraded' : 'operational';
-                statusEls.forEach(function (el) {
-                    el.setAttribute('data-status', status);
-                    var labelEl = el.querySelector('[data-status-label]');
-                    if (labelEl) labelEl.textContent = STATUS_LABELS[status][lang];
-                });
-            })
-            .catch(function () { /* keep operational silently */ });
+        growMsg();
+        mMsg.addEventListener('input', growMsg);
+        window.addEventListener('resize', growMsg, { passive: true });
+        window.addEventListener('load', growMsg);
     }
 
     // ── Law 25 map: pointer parallax (desktop, motion-allowed only) ──
