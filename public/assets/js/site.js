@@ -90,7 +90,7 @@
                 if (e.isIntersecting) { e.target.classList.add('is-visible'); revealObs.unobserve(e.target); }
             });
         }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
-        document.querySelectorAll('.reveal-on-scroll').forEach(function (el) {
+        document.querySelectorAll('.reveal-on-scroll, .reveal-stagger').forEach(function (el) {
             if (el.getBoundingClientRect().top < vh) el.classList.add('is-visible');
             else revealObs.observe(el);
         });

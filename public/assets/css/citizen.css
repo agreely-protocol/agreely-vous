@@ -238,8 +238,8 @@ body.menu-lock { overflow: hidden; }
    HERO - the mirror. Warmed dawn-wetland art + a glowing receipt card.
    ============================================================ */
 .hero {
-    position: relative; display: flex; align-items: flex-start; min-height: 0;
-    padding: calc(var(--nav-height) + 3.4rem) 0 9.5rem;
+    position: relative; display: flex; align-items: center; min-height: clamp(38rem, 90vh, 54rem);
+    padding: calc(var(--nav-height) + 2rem) 0 9.5rem;
     overflow-x: clip; overflow-y: visible; isolation: isolate;
 }
 .hero > .container { width: 100%; }
@@ -291,8 +291,8 @@ body.menu-lock { overflow: hidden; }
     .hero { padding: calc(var(--nav-height) + 2rem) 0 7rem; }
     .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .hero-copy { max-width: 34rem; }
-    .hero-bg img { object-position: 72% center; }
-    .hero-bg-dark { background-position: 72% center; }
+    .hero-bg img { object-position: 85% center; }
+    .hero-bg-dark { background-position: 85% center; }
     .hero-scrim {
         background:
             radial-gradient(40rem 22rem at 80% 0%, rgba(232,148,60,0.24), transparent 60%),
@@ -308,6 +308,10 @@ body.menu-lock { overflow: hidden; }
 @media (max-width: 560px) { .hero-h1 { font-size: clamp(2rem, 8.5vw, 2.5rem); } }
 
 /* ── Problem ────────────────────────────────────────────────── */
+/* No hairline here: the problem section sits directly under the hero art, and
+   the .lsec top border would draw a line across the fading heron. The hero art
+   fade is the divider. */
+.problem-sec { border-top: 0; }
 .problem-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 4rem; align-items: start; }
 @media (max-width: 900px) { .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 .problem-intro { max-width: 28rem; }
@@ -330,7 +334,7 @@ body.menu-lock { overflow: hidden; }
    speak one visual language (elevated inset, mono microtype, hairline rows).
    Amber stays scarce here: the single .mark on "non" plus the semantic warm
    caveat; the receipt seal and all panel chrome run indigo/muted. */
-.gifts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin-top: 3.5rem; }
+.gifts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; margin-top: 3.5rem; }
 @media (max-width: 880px) { .gifts-grid { grid-template-columns: 1fr; max-width: 34rem; gap: 1.1rem; } }
 .gift-card {
     display: flex; flex-direction: column;
@@ -452,8 +456,6 @@ body.menu-lock { overflow: hidden; }
 .manifeste-intro { text-align: center; margin: 0 auto 2.5rem; max-width: 40rem; }
 .manifeste-intro .section-heading, .manifeste-intro .section-lede { margin-left: auto; margin-right: auto; }
 .manifeste-intro .section-label { margin-left: auto; margin-right: auto; }
-.manifeste-eyebrow { display: inline-flex; align-items: center; gap: 0.45rem; margin-bottom: 1rem; font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-warm); font-feature-settings: "zero" 1; }
-[data-theme="dark"] .manifeste-eyebrow { color: var(--accent-warm-soft); }
 .manifeste-card {
     background: var(--bg-surface); border: 1px solid var(--border); border-radius: 1.4rem;
     padding: 1.75rem; box-shadow: 0 40px 80px -44px rgba(20, 24, 92, 0.4);
@@ -474,11 +476,12 @@ body.menu-lock { overflow: hidden; }
 
 .manifeste-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.25rem; }
 .manifeste-actions .btn { padding: 0.75rem 1.3rem; font-size: 0.9rem; }
+.manifeste-actions .btn-sign { margin-left: auto; }
 .manifeste-status { min-height: 1.25rem; margin: 0.9rem 0 0; font-size: 0.88rem; font-weight: 550; color: var(--good); }
 .manifeste-note { margin: 1rem 0 0; font-size: 0.82rem; line-height: 1.55; color: var(--text-muted); }
 
 /* ── Honesty ────────────────────────────────────────────────── */
-.honesty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 3rem; }
+.honesty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
 @media (max-width: 900px) { .honesty-grid { grid-template-columns: 1fr; max-width: 34rem; } }
 .honesty-card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: 1.1rem; padding: 1.75rem; transition: border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease); }
 .honesty-card:hover { border-color: var(--border-accent); box-shadow: 0 18px 40px -26px rgba(20,24,92,0.4); transform: translateY(-3px); }
