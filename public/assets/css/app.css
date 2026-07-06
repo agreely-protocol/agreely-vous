@@ -28,12 +28,12 @@
 
     /* warm amber - secondary accent echoing the dawn in the hero illustration.
        Decorative use only (rules, glows); the AA-safe text tone is --accent-warm. */
-    --accent-warm: #B45309;
+    --accent-warm: #92400E;
     --accent-warm-soft: #E8943C;
     --accent-warm-glow: rgba(180, 83, 9, 0.10);
 
     /* semantic (doc callouts) */
-    --good: #15803D;  --good-bg: rgba(21, 128, 61, 0.08);
+    --good: #166534;  --good-bg: rgba(21, 128, 61, 0.08);
     --warn: #92400E;  --warn-bg: rgba(180, 83, 9, 0.09);
     --bad:  #B91C1C;  --bad-bg:  rgba(185, 28, 28, 0.08);
 

@@ -572,7 +572,8 @@ body.menu-lock { overflow: hidden; }
 .isl-footer-cta:hover { color: #fff; background: rgba(123, 118, 240, 0.22); border-color: rgba(201, 203, 255, 0.7); }
 .isl-footer-cta svg { transition: transform 0.25s var(--ease); }
 .isl-footer-cta:hover svg { transform: translateX(0.2rem); }
-.isl-footer-socials { display: flex; gap: 0.6rem; margin-top: 1.6rem; }
+.isl-footer-socials { display: flex; gap: 0.6rem; margin-top: 1.6rem; list-style: none; padding: 0; margin-bottom: 0; }
+.isl-footer-socials > li { list-style: none; }
 .isl-footer-social { display: inline-flex; align-items: center; justify-content: center; width: 2.4rem; height: 2.4rem; border-radius: 9999px; border: 1px solid rgba(201, 203, 255, 0.28); color: rgba(237, 238, 250, 0.82); background: rgba(201, 203, 255, 0.06); transition: color 0.2s var(--ease), border-color 0.2s var(--ease), background 0.2s var(--ease), transform 0.2s var(--ease); }
 .isl-footer-social:hover { color: #fff; border-color: rgba(201, 203, 255, 0.7); background: rgba(123, 118, 240, 0.22); transform: translateY(-2px); }
 .isl-footer-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 1.25rem; }
