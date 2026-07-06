@@ -234,7 +234,22 @@ body.menu-lock { overflow: hidden; }
     overflow-x: clip; overflow-y: visible; isolation: isolate;
 }
 .hero > .container { width: 100%; }
-.hero-bg { position: absolute; inset: -2% 0 -46% 0; z-index: -3; display: block; }
+/* The art element spans -2% above the hero to 46% below it (the downward bleed
+   behind the "01" section). Instead of painting a canvas-colored fade OVER the
+   art (which drew a visible band at the hero's bottom while the art kept going
+   below it), the art itself is masked to transparent across the lower third of
+   its own box: one long dissolve, and the page canvas of the CURRENT theme
+   shows through, so light and dark stay identical by construction. Percentages
+   are relative to the 148%-tall art box: opaque through the hero (62% of the
+   box = ~90% of hero height), fully gone at 97% (~41% of hero height below the
+   hero bottom, well past the 01 heading). */
+.hero-bg {
+    position: absolute; inset: -2% 0 -46% 0; z-index: -3; display: block;
+    -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 97%);
+    mask-image: linear-gradient(to bottom, #000 62%, transparent 97%);
+    -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
 .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: 88% center; }
 /* Amber dawn wash: a warm layer over the art so dawn reads more prominent than
    on the business site, then a cool-light directional scrim holds the type. */
@@ -244,13 +259,6 @@ body.menu-lock { overflow: hidden; }
         radial-gradient(48rem 30rem at 82% 8%, rgba(232,148,60,0.30), transparent 62%),
         linear-gradient(90deg, rgba(246,248,252,0.80) 0%, rgba(246,248,252,0.78) 24%, rgba(246,248,252,0.72) 41%, rgba(246,248,252,0.54) 54%, rgba(246,248,252,0.36) 63%, rgba(246,248,252,0.12) 71%, rgba(246,248,252,0) 78%);
 }
-/* Anchored at the hero's own visible bottom (not the -46% overflow): overflow-x:clip
-   forces the vertical overflow to clip at the hero box, so a fade placed below it
-   would be clipped away and never paint. Fading the art into the canvas within the
-   last band of the visible hero dissolves it cleanly and hides the clip edge, in
-   both themes. Reaches full canvas at the bottom so the clip line is invisible. */
-.hero-fade { position: absolute; left: 0; right: 0; bottom: 0; height: 13rem; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(246,248,252,0) 0%, var(--bg-deep) 100%); }
-
 .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
 .hero-copy { position: relative; z-index: 1; max-width: 40rem; }
 .hero-h1 { font-size: clamp(2.3rem, 4.6vw, 3.35rem); line-height: 1.08; letter-spacing: -0.035em; font-weight: 650; color: #20235C; margin: 0 0 1.3rem; text-wrap: balance; }
@@ -282,8 +290,6 @@ body.menu-lock { overflow: hidden; }
 [data-theme="dark"] .hero .btn-primary:hover { background: #4a45c0; }
 [data-theme="dark"] .hero .btn-ghost { background: rgba(20,24,38,0.55); color: #D5D7FF; border-color: rgba(123,118,240,0.42); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 [data-theme="dark"] .hero .btn-ghost:hover { background: rgba(28,32,54,0.75); border-color: var(--border-accent); color: #EDEEFF; }
-/* Dark art is higher-contrast, so give it a slightly taller dissolve to canvas. */
-[data-theme="dark"] .hero-fade { height: 16rem; background: linear-gradient(180deg, rgba(12,14,26,0) 0%, var(--bg-deep) 100%); }
 
 @media (max-width: 900px) {
     .hero { padding: calc(var(--nav-height) + 2rem) 0 7rem; }
@@ -301,7 +307,6 @@ body.menu-lock { overflow: hidden; }
             radial-gradient(40rem 22rem at 80% 0%, rgba(232,162,76,0.14), transparent 60%),
             linear-gradient(180deg, #0C0E1A 0%, rgba(12,14,26,0.92) 40%, rgba(12,14,26,0.6) 66%, rgba(12,14,26,0.22) 100%);
     }
-    .hero-fade { height: 7rem; }
 }
 @media (max-width: 560px) { .hero-h1 { font-size: clamp(2rem, 8.5vw, 2.5rem); } }
 
