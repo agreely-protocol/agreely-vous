@@ -4,16 +4,7 @@
         "h1": "How many companies are holding your personal information right now?",
         "lede": "You have no idea. Agreely changes that: a receipt for every 'yes,' and the power to take your consent back whenever <span class='mark'>you</span> want.",
         "cta_primary": "See how it works",
-        "cta_secondary": "Open my app",
-        "receipt_title": "Consent receipt",
-        "receipt_badge": "Active",
-        "receipt_k1": "Company",
-        "receipt_v1": "Boreal Clinic",
-        "receipt_k2": "You agreed to",
-        "receipt_v2": "Appointment reminders",
-        "receipt_k3": "On",
-        "receipt_v3": "July 3, 2026",
-        "receipt_foot": "Sealed, verifiable, yours"
+        "cta_secondary": "Open my app"
     },
     "problem": {
         "label": "The problem",

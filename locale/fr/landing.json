@@ -4,16 +4,7 @@
         "h1": "Combien d'entreprises détiennent vos renseignements en ce moment ?",
         "lede": "Vous ne le savez pas. Agreely change ça : un reçu pour chaque « oui », et le pouvoir de retirer votre accord quand <span class='mark'>vous</span> le voulez.",
         "cta_primary": "Voir comment ça marche",
-        "cta_secondary": "Ouvrir mon appli",
-        "receipt_title": "Reçu de consentement",
-        "receipt_badge": "Actif",
-        "receipt_k1": "Entreprise",
-        "receipt_v1": "Clinique Boréale",
-        "receipt_k2": "Vous avez accepté",
-        "receipt_v2": "Rappels de rendez-vous",
-        "receipt_k3": "Le",
-        "receipt_v3": "3 juillet 2026",
-        "receipt_foot": "Scellé, vérifiable, à vous"
+        "cta_secondary": "Ouvrir mon appli"
     },
     "problem": {
         "label": "Le problème",
