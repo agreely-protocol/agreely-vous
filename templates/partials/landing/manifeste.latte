@@ -1,10 +1,9 @@
 {*
   05 - The manifesto. THE primary conversion. A ready-to-send message sits in an
   EDITABLE, COPYABLE textarea (real selectable text, never an image). Actions, in
-  priority order: copy the message, send it by email (prefilled mailto), share it
-  (Web Share API), and sign the manifesto (client-side only, no backend, no stored
-  signatures). All confirmations go through an aria-live region. Tabler copy,
-  mail, share, writing-sign. Copy from locale JSON. No em-dashes.
+  priority order: copy the message, send it by email (prefilled mailto), and share
+  it (Web Share API). Confirmations go through an aria-live region. Tabler copy,
+  mail, share. Copy from locale JSON. No em-dashes.
 *}
 <section class="lsec lsec-manifeste manifeste-sec" id="manifeste" aria-labelledby="manifeste-heading">
     <div class="container manifeste-wrap">
@@ -41,15 +40,9 @@
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M15 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.7 10.7l6.6 -3.4" /><path d="M8.7 13.3l6.6 3.4" /></svg>
                     {localize('manifeste.share')}
                 </button>
-                <button type="button" class="btn btn-sign js-sign" aria-pressed="false" data-signed-label="{localize('manifeste.signed')}" data-thanks="{localize('manifeste.thanks')}">
-                    {* Tabler: writing-sign *}
-                    <svg class="js-sign-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 19c3.333 -2 5 -4 5 -6c0 -3 -1 -3 -2 -3s-2.032 1.085 -2 3c.034 2.048 1.658 2.877 2.5 4c1.5 2 2.5 2.5 3.5 1c.667 -1 1.167 -1.833 1.5 -2.5c1 2.333 2.333 3.5 4 3.5h2.5" /><path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2" /><path d="M16 7h4" /></svg>
-                    <span class="js-sign-label">{localize('manifeste.sign')}</span>
-                </button>
             </div>
 
             <p class="manifeste-status" id="manifestoStatus" role="status" aria-live="polite"></p>
-            <p class="manifeste-note">{localize('manifeste.note')}</p>
         </div>
     </div>
 </section>

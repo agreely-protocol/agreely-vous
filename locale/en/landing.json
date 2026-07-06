@@ -92,11 +92,7 @@
         "copy": "Copy the message",
         "copied": "Message copied",
         "email": "Send by email",
-        "share": "Share",
-        "sign": "Sign the manifesto",
-        "signed": "Manifesto signed",
-        "thanks": "Thank you! Your support stays on your device. Share it to win over one more company.",
-        "note": "No account, no server: signing just keeps a note on your device. Nothing is sent to or stored by Agreely."
+        "share": "Share"
     },
     "honesty": {
         "label": "Let’s be honest",

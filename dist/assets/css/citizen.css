@@ -63,15 +63,6 @@
 [data-theme="dark"] .isl-cta { background: #5b55d6; box-shadow: 0 6px 18px -6px rgba(91, 85, 214, 0.6); }
 [data-theme="dark"] .isl-cta:hover { background: #4a45c0; }
 
-/* Sign button: a warm-accented ghost so indigo stays the primary action. */
-.btn-sign { background: var(--bg-surface); color: var(--accent-warm); padding: 0.9rem 1.5rem; font-size: 0.95rem; border: 1px solid var(--accent-warm-soft); }
-.btn-sign svg { color: var(--accent-warm); }
-.btn-sign:hover { background: var(--accent-warm-glow); border-color: var(--accent-warm); color: var(--accent-warm); }
-.btn-sign.is-signed { background: var(--good-bg); border-color: var(--good); color: var(--good); }
-.btn-sign.is-signed svg { color: var(--good); }
-[data-theme="dark"] .btn-sign { color: var(--accent-warm-soft); border-color: rgba(232,162,76,0.4); }
-[data-theme="dark"] .btn-sign svg { color: var(--accent-warm-soft); }
-
 /* copied-state affordance on any copy button */
 .js-copy.is-copied { color: var(--good); }
 .cta-btn-ghost.js-copy.is-copied { color: var(--good); border-color: var(--good); }
@@ -256,7 +247,7 @@ body.menu-lock { overflow: hidden; }
 .hero-fade { position: absolute; left: 0; right: 0; bottom: -46%; height: 11rem; z-index: -1; pointer-events: none; background: linear-gradient(180deg, rgba(246,248,252,0) 0%, var(--bg-deep) 92%); }
 
 .hero-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
-.hero-copy { position: relative; z-index: 1; max-width: 52rem; }
+.hero-copy { position: relative; z-index: 1; max-width: 40rem; }
 .hero-h1 { font-size: clamp(2.3rem, 4.6vw, 3.35rem); line-height: 1.08; letter-spacing: -0.035em; font-weight: 650; color: #20235C; margin: 0 0 1.3rem; text-wrap: balance; }
 .hero-lede { font-size: 1.14rem; line-height: 1.62; color: #2C3340; margin: 0 0 2rem; max-width: 44rem; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.85rem; }
@@ -286,6 +277,10 @@ body.menu-lock { overflow: hidden; }
 [data-theme="dark"] .hero .btn-primary:hover { background: #4a45c0; }
 [data-theme="dark"] .hero .btn-ghost { background: rgba(20,24,38,0.55); color: #D5D7FF; border-color: rgba(123,118,240,0.42); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 [data-theme="dark"] .hero .btn-ghost:hover { background: rgba(28,32,54,0.75); border-color: var(--border-accent); color: #EDEEFF; }
+/* Dark art is higher-contrast than the pale light art, so the short light-mode
+   fade leaves a visible grey-to-canvas band. Use a taller, earlier ramp so the
+   dark heron dissolves smoothly into the canvas behind the problem section. */
+[data-theme="dark"] .hero-fade { height: 20rem; background: linear-gradient(180deg, rgba(12,14,26,0) 0%, rgba(12,14,26,0.5) 42%, var(--bg-deep) 86%); }
 
 @media (max-width: 900px) {
     .hero { padding: calc(var(--nav-height) + 2rem) 0 7rem; }
@@ -476,9 +471,7 @@ body.menu-lock { overflow: hidden; }
 
 .manifeste-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.25rem; }
 .manifeste-actions .btn { padding: 0.75rem 1.3rem; font-size: 0.9rem; }
-.manifeste-actions .btn-sign { margin-left: auto; }
 .manifeste-status { min-height: 1.25rem; margin: 0.9rem 0 0; font-size: 0.88rem; font-weight: 550; color: var(--good); }
-.manifeste-note { margin: 1rem 0 0; font-size: 0.82rem; line-height: 1.55; color: var(--text-muted); }
 
 /* ── Honesty ────────────────────────────────────────────────── */
 .honesty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }

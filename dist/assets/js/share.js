@@ -1,19 +1,13 @@
 /* Agreely (citizens) share.
-   Three small enhancements around the manifesto message, all client-side:
+   Two small enhancements around the manifesto message, all client-side:
      1. js-mailto  -> keeps a prefilled mailto: href in sync with the (editable)
                       message textarea, so "send by email" always sends what the
                       visitor sees. Recipient is left blank on purpose.
      2. js-share   -> revealed only when the Web Share API exists; shares the
                       current message text.
-     3. js-sign    -> "sign the manifesto" is a purely local gesture (localStorage
-                      flag, no backend, no stored signature). It flips the button
-                      to a signed state and thanks the visitor via the aria-live
-                      region, then nudges them to share.
    No dependencies. */
 (function () {
     'use strict';
-
-    var SIGN_KEY = 'agreely-manifesto-signed';
 
     function sourceEl(el) {
         var sel = el.getAttribute('data-source');

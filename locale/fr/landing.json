@@ -92,11 +92,7 @@
         "copy": "Copier le message",
         "copied": "Message copié",
         "email": "Envoyer par courriel",
-        "share": "Partager",
-        "sign": "Signer le manifeste",
-        "signed": "Manifeste signé",
-        "thanks": "Merci ! Votre appui reste sur votre appareil. Partagez-le pour convaincre une entreprise de plus.",
-        "note": "Aucun compte, aucun serveur : signer garde simplement une trace sur votre appareil. Rien n’est envoyé ni conservé par Agreely."
+        "share": "Partager"
     },
     "honesty": {
         "label": "Soyons honnêtes",
