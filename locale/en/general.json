@@ -1,0 +1,35 @@
+{
+    "nav": {
+        "problem": "The problem",
+        "gifts": "What you get",
+        "manifesto": "The manifesto",
+        "faq": "Questions",
+        "open_app": "Open my app",
+        "for_business": "Are you a business?",
+        "home_aria": "Agreely home, for citizens",
+        "toggle_theme": "Toggle theme",
+        "menu": "Menu"
+    },
+    "lang": {
+        "fr": "FR",
+        "en": "EN",
+        "switch_aria": "Change language"
+    },
+    "footer": {
+        "tagline": "A receipt for every 'yes,' and the power to take your consent back whenever you want. Agreely, on people's side.",
+        "nav_aria": "Footer links",
+        "for_you": "For you",
+        "my_app": "My app",
+        "verify": "Verify a receipt",
+        "manifesto": "The manifesto",
+        "learn_more": "Learn more",
+        "what_is_law25": "What is Law 25",
+        "how_it_works": "How it works",
+        "for_business": "For businesses",
+        "ophelios": "Ophelios Studio",
+        "privacy": "Privacy",
+        "accessibility": "Accessibility",
+        "legal": "Legal",
+        "socials": "Ophelios social links"
+    }
+}

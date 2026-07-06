@@ -1,0 +1,35 @@
+{*
+  04 - Why this is good for you. A short, warm argument: you finally move to the
+  side that has the evidence. Three benefit lines (Tabler scale, eye-check,
+  circle-check). Copy from locale JSON. No em-dashes.
+*}
+<section class="lsec why-sec" id="why" aria-labelledby="why-heading">
+    <div class="container">
+        <div class="lsec-intro reveal-on-scroll">
+            {include '../section-label.latte', number: '04', label: localize('why.label')}
+            <h2 class="section-heading" id="why-heading">{localize('why.heading')|noescape}</h2>
+            <p class="section-lede">{localize('why.lede')|noescape}</p>
+        </div>
+
+        <ul class="why-list reveal-on-scroll reveal-stagger">
+            <li class="why-item">
+                <span class="why-ico" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20l10 0" /><path d="M6 6l6 -1l6 1" /><path d="M12 3l0 17" /><path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0" /><path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0" /></svg>
+                </span>
+                <p class="why-p">{localize('why.i1')|noescape}</p>
+            </li>
+            <li class="why-item">
+                <span class="why-ico" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" /><path d="M15 19l2 2l4 -4" /></svg>
+                </span>
+                <p class="why-p">{localize('why.i2')|noescape}</p>
+            </li>
+            <li class="why-item">
+                <span class="why-ico" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /><path d="M9 12l2 2l4 -4" /></svg>
+                </span>
+                <p class="why-p">{localize('why.i3')|noescape}</p>
+            </li>
+        </ul>
+    </div>
+</section>

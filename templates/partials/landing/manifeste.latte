@@ -1,0 +1,55 @@
+{*
+  05 - The manifesto. THE primary conversion. A ready-to-send message sits in an
+  EDITABLE, COPYABLE textarea (real selectable text, never an image). Actions, in
+  priority order: copy the message, send it by email (prefilled mailto), share it
+  (Web Share API), and sign the manifesto (client-side only, no backend, no stored
+  signatures). All confirmations go through an aria-live region. Tabler copy,
+  mail, share, writing-sign. Copy from locale JSON. No em-dashes.
+*}
+<section class="lsec lsec-manifeste manifeste-sec" id="manifeste" aria-labelledby="manifeste-heading">
+    <div class="container manifeste-wrap">
+        <div class="manifeste-intro reveal-on-scroll">
+            <span class="manifeste-eyebrow">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>
+                {localize('manifeste.eyebrow')}
+            </span>
+            {include '../section-label.latte', number: '05', label: localize('manifeste.label')}
+            <h2 class="section-heading" id="manifeste-heading">{localize('manifeste.heading')|noescape}</h2>
+            <p class="section-lede">{localize('manifeste.lede')|noescape}</p>
+        </div>
+
+        <div class="manifeste-card reveal-on-scroll">
+            <div class="copy-field">
+                <div class="copy-field-head">
+                    <label class="copy-field-label" for="manifestoMessage">{localize('manifeste.box_label')}</label>
+                    <span class="copy-field-hint">{localize('manifeste.box_hint')}</span>
+                </div>
+                <textarea id="manifestoMessage" class="copy-field-area" rows="9" spellcheck="false" aria-label="{localize('manifeste.box_label')}"
+                    data-mail-subject="{localize('manifeste.mail_subject')}"
+                    data-share-title="{localize('manifeste.share_title')}">{localize('manifeste.message')}</textarea>
+            </div>
+
+            <div class="manifeste-actions">
+                <button type="button" class="btn btn-primary js-copy" data-copy-target="#manifestoMessage" data-copied-label="{localize('manifeste.copied')}">
+                    <svg class="js-copy-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /><path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" /></svg>
+                    <span class="js-copy-label">{localize('manifeste.copy')}</span>
+                </button>
+                <a href="#" class="btn btn-ghost js-mailto" data-source="#manifestoMessage">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+                    {localize('manifeste.email')}
+                </a>
+                <button type="button" class="btn btn-ghost js-share" data-source="#manifestoMessage" hidden>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M18 6m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" /><path d="M8.7 10.7l6.6 -3.4" /><path d="M8.7 13.3l6.6 3.4" /></svg>
+                    {localize('manifeste.share')}
+                </button>
+                <button type="button" class="btn btn-sign js-sign" aria-pressed="false" data-signed-label="{localize('manifeste.signed')}" data-thanks="{localize('manifeste.thanks')}">
+                    <svg class="js-sign-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 17v-12c0 -1.121 -.879 -2 -2 -2s-2 .879 -2 2v12l2 2l2 -2z" /><path d="M16 7h4" /><path d="M18 19h-13a2 2 0 1 1 0 -4h4a2 2 0 1 0 0 -4h-3" /></svg>
+                    <span class="js-sign-label">{localize('manifeste.sign')}</span>
+                </button>
+            </div>
+
+            <p class="manifeste-status" id="manifestoStatus" role="status" aria-live="polite"></p>
+            <p class="manifeste-note">{localize('manifeste.note')}</p>
+        </div>
+    </div>
+</section>

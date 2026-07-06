@@ -1,0 +1,30 @@
+{*
+  Closing CTA band. Warm amber-tinted card, distinct from the deep-indigo footer
+  below it. Two actions: open the app (primary) and copy the message to send
+  (secondary, reuses the manifesto textarea + the js-copy handler). Copy from
+  locale JSON. No em-dashes.
+*}
+<section class="cta" id="cta" aria-labelledby="cta-heading">
+    <div class="container">
+        <div class="cta-card reveal-scale reveal-on-scroll">
+            <div class="cta-card-grid" aria-hidden="true"></div>
+            <div class="cta-card-glow" aria-hidden="true"></div>
+            <div class="cta-inner">
+                <span class="cta-eyebrow">{localize('cta.eyebrow')}</span>
+                <h2 class="cta-h" id="cta-heading">{localize('cta.heading')|noescape}</h2>
+                <p class="cta-p">{localize('cta.copy')}</p>
+                <div class="cta-actions">
+                    <a href="https://my.agreely.ca" class="btn cta-btn-light" target="_blank" rel="noopener noreferrer">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+                        {localize('cta.primary')}
+                    </a>
+                    <button type="button" class="btn cta-btn-ghost js-copy" data-copy-target="#manifestoMessage" data-copied-label="{localize('manifeste.copied')}">
+                        <svg class="js-copy-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 8m0 2a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2z" /><path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2" /></svg>
+                        <span class="js-copy-label">{localize('cta.secondary')}</span>
+                    </button>
+                </div>
+                <p class="cta-status" role="status" aria-live="polite" id="ctaCopyStatus"></p>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+{*
+  03 - Your app. A human band: the real citizen app screenshot in a phone frame
+  beside three plain bullets (Tabler fingerprint, mail-off, device-mobile) and a
+  primary CTA to my.agreely.ca. Copy from locale JSON. No em-dashes.
+*}
+<section class="lsec lsec-soft app-sec" id="app" aria-labelledby="app-heading">
+    <div class="container app-grid">
+        <div class="app-copy reveal-on-scroll">
+            {include '../section-label.latte', number: '03', label: localize('app.label')}
+            <h2 class="section-heading" id="app-heading">{localize('app.heading')|noescape}</h2>
+            <p class="section-lede">{localize('app.lede')|noescape}</p>
+
+            <ul class="app-bullets">
+                <li class="app-bullet">
+                    <span class="app-bullet-ico" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3" /><path d="M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6" /><path d="M12 11v2a14 14 0 0 0 2.5 8" /><path d="M8 15a18 18 0 0 0 1.8 6" /><path d="M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95" /></svg>
+                    </span>
+                    <div class="app-bullet-body">
+                        <h3 class="app-bullet-h">{localize('app.b1_h')}</h3>
+                        <p class="app-bullet-p">{localize('app.b1_p')}</p>
+                    </div>
+                </li>
+                <li class="app-bullet">
+                    <span class="app-bullet-ico" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l1.999 1.333m4.001 2.667l3 2l9 -6" /><path d="M22 8.087v7.913a2 2 0 0 1 -2 2h-16a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2h13" /><path d="M3 3l18 18" /></svg>
+                    </span>
+                    <div class="app-bullet-body">
+                        <h3 class="app-bullet-h">{localize('app.b2_h')}</h3>
+                        <p class="app-bullet-p">{localize('app.b2_p')}</p>
+                    </div>
+                </li>
+                <li class="app-bullet">
+                    <span class="app-bullet-ico" aria-hidden="true">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+                    </span>
+                    <div class="app-bullet-body">
+                        <h3 class="app-bullet-h">{localize('app.b3_h')}</h3>
+                        <p class="app-bullet-p">{localize('app.b3_p')}</p>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="app-actions">
+                <a href="https://my.agreely.ca" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+                    {localize('app.cta')}
+                </a>
+            </div>
+        </div>
+
+        <div class="app-shot reveal-on-scroll">
+            <div class="app-phone">
+                <span class="app-phone-notch" aria-hidden="true"></span>
+                <picture>
+                    <source type="image/webp" srcset="/assets/app/citizen-app.webp">
+                    <img src="/assets/app/citizen-app.jpg" alt="{localize('app.shot_alt')}" loading="lazy" decoding="async" width="1170" height="2532">
+                </picture>
+            </div>
+            <span class="app-shot-glow" aria-hidden="true"></span>
+        </div>
+    </div>
+</section>

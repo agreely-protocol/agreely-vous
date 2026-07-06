@@ -1,0 +1,62 @@
+{*
+  FAQ. Six plain questions people actually ask, native <details>/<summary>
+  accordion (keyboard + screen-reader friendly, no JS). One question honestly
+  names the chain (the single allowed mention). A per-locale FAQPage JSON-LD block
+  is built from the SAME localized strings so it can never drift. Copy from locale
+  JSON. No em-dashes.
+*}
+{var $dl = $defaultLocale ?? 'fr'}
+{var $cur = $currentLocale ?? $dl}
+
+{var $faqQA = [
+    ['q' => localize('faq.q1'), 'a' => localize('faq.a1')],
+    ['q' => localize('faq.q2'), 'a' => localize('faq.a2')],
+    ['q' => localize('faq.q3'), 'a' => localize('faq.a3')],
+    ['q' => localize('faq.q4'), 'a' => localize('faq.a4')],
+    ['q' => localize('faq.q5'), 'a' => localize('faq.a5')],
+    ['q' => localize('faq.q6'), 'a' => localize('faq.a6')],
+]}
+
+<section class="lsec faq-sec" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+        <div class="lsec-intro reveal-on-scroll">
+            {include '../section-label.latte', number: '07', label: localize('faq.label')}
+            <h2 class="section-heading" id="faq-heading">{localize('faq.heading')|noescape}</h2>
+            <p class="section-lede">{localize('faq.lede')}</p>
+        </div>
+
+        <div class="faq-list reveal-on-scroll">
+            {foreach $faqQA as $item}
+            <details class="faq-item"{if $iterator->first} open{/if}>
+                <summary class="faq-q">
+                    <span class="faq-q-text">{$item['q']}</span>
+                    <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg>
+                </summary>
+                <div class="faq-a">
+                    <p>{$item['a']|noescape}</p>
+                </div>
+            </details>
+            {/foreach}
+        </div>
+
+        <p class="faq-disclaimer reveal-on-scroll">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9h.01" /><path d="M11 12h1v4h1" /><path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18z" /></svg>
+            <span>{localize('faq.disclaimer')}</span>
+        </p>
+    </div>
+
+    {var $faqLd = [
+        '@context' => 'https://schema.org',
+        '@type' => 'FAQPage',
+        'inLanguage' => $cur === 'fr' ? 'fr-CA' : 'en-CA',
+        'mainEntity' => [],
+    ]}
+    {foreach $faqQA as $item}
+        {do $faqLd['mainEntity'][] = [
+            '@type' => 'Question',
+            'name' => strip_tags($item['q']),
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => strip_tags($item['a'])],
+        ]}
+    {/foreach}
+    <script type="application/ld+json">{json_encode($faqLd, \JSON_UNESCAPED_UNICODE | \JSON_UNESCAPED_SLASHES | \JSON_PRETTY_PRINT)|noescape}</script>
+</section>

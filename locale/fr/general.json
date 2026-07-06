@@ -1,0 +1,35 @@
+{
+    "nav": {
+        "problem": "Le problème",
+        "gifts": "Ce que vous obtenez",
+        "manifesto": "Le manifeste",
+        "faq": "Questions",
+        "open_app": "Ouvrir mon appli",
+        "for_business": "Vous êtes une entreprise ?",
+        "home_aria": "Accueil Agreely, pour les citoyens",
+        "toggle_theme": "Changer de thème",
+        "menu": "Menu"
+    },
+    "lang": {
+        "fr": "FR",
+        "en": "EN",
+        "switch_aria": "Changer de langue"
+    },
+    "footer": {
+        "tagline": "Un reçu pour chaque « oui », et le pouvoir de retirer votre accord quand vous le voulez. Agreely, du côté des gens.",
+        "nav_aria": "Liens du pied de page",
+        "for_you": "Pour vous",
+        "my_app": "Mon appli",
+        "verify": "Vérifier un reçu",
+        "manifesto": "Le manifeste",
+        "learn_more": "En savoir plus",
+        "what_is_law25": "C'est quoi la Loi 25",
+        "how_it_works": "Comment ça marche",
+        "for_business": "Pour les entreprises",
+        "ophelios": "Ophelios Studio",
+        "privacy": "Confidentialité",
+        "accessibility": "Accessibilité",
+        "legal": "Mentions légales",
+        "socials": "Réseaux sociaux d'Ophelios"
+    }
+}

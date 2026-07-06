@@ -1,0 +1,24 @@
+{layout 'layouts/landing.latte'}
+
+{*
+  Agreely CITIZEN landing. A warmer, human-centered sibling of the business
+  landing: same family signature (island nav docking to a pill, numbered mono
+  section labels, reveal footer, Inter + JetBrains Mono, scroll reveals, dark
+  mode) but amber is promoted to co-lead and one emotional word per section
+  carries the amber highlighter. Sections live in partials/landing/*. FR is the
+  source of truth; EN is full parity. No em-dashes, no en-dashes anywhere.
+*}
+
+{block content}
+<main id="main" class="landing-main">
+    {include 'partials/landing/hero.latte'}
+    {include 'partials/landing/problem.latte'}
+    {include 'partials/landing/gifts.latte'}
+    {include 'partials/landing/app.latte'}
+    {include 'partials/landing/why.latte'}
+    {include 'partials/landing/manifeste.latte'}
+    {include 'partials/landing/honesty.latte'}
+    {include 'partials/landing/faq.latte'}
+    {include 'partials/landing/cta.latte'}
+</main>
+{/block}
