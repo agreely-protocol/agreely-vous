@@ -57,6 +57,11 @@
 .btn-ghost:hover { border-color: var(--border-accent); background: var(--accent-glow); color: var(--accent); }
 [data-theme="dark"] .btn-primary { background: #5b55d6; box-shadow: 0 10px 24px -12px rgba(91, 85, 214, 0.7); }
 [data-theme="dark"] .btn-primary:hover { background: #4a45c0; }
+/* Dark-mode nav CTA (isl-cta and its -sm / -block variants share this base):
+   #fff on the default accent is only 3.68:1 in dark; lift to AA (parity with the
+   business landing's landing.css fix). Covers spread, docked pill and mobile menu. */
+[data-theme="dark"] .isl-cta { background: #5b55d6; box-shadow: 0 6px 18px -6px rgba(91, 85, 214, 0.6); }
+[data-theme="dark"] .isl-cta:hover { background: #4a45c0; }
 
 /* Sign button: a warm-accented ghost so indigo stays the primary action. */
 .btn-sign { background: var(--bg-surface); color: var(--accent-warm); padding: 0.9rem 1.5rem; font-size: 0.95rem; border: 1px solid var(--accent-warm-soft); }
