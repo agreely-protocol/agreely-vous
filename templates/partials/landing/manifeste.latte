@@ -9,10 +9,6 @@
 <section class="lsec lsec-manifeste manifeste-sec" id="manifeste" aria-labelledby="manifeste-heading">
     <div class="container manifeste-wrap">
         <div class="manifeste-intro reveal-on-scroll">
-            <span class="manifeste-eyebrow">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" /><path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" /></svg>
-                {localize('manifeste.eyebrow')}
-            </span>
             {include '../section-label.latte', number: '05', label: localize('manifeste.label')}
             <h2 class="section-heading" id="manifeste-heading">{localize('manifeste.heading')|noescape}</h2>
             <p class="section-lede">{localize('manifeste.lede')|noescape}</p>
@@ -24,7 +20,7 @@
                     <label class="copy-field-label" for="manifestoMessage">{localize('manifeste.box_label')}</label>
                     <span class="copy-field-hint">{localize('manifeste.box_hint')}</span>
                 </div>
-                <textarea id="manifestoMessage" class="copy-field-area" rows="9" spellcheck="false" aria-label="{localize('manifeste.box_label')}"
+                <textarea id="manifestoMessage" class="copy-field-area" rows="12" spellcheck="false" aria-label="{localize('manifeste.box_label')}"
                     data-mail-subject="{localize('manifeste.mail_subject')}"
                     data-share-title="{localize('manifeste.share_title')}">{localize('manifeste.message')}</textarea>
             </div>
