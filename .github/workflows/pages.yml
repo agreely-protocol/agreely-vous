@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+# The site is a static Zephyrus Leaf build. dist/ is committed (the house pattern),
+# so this pipeline validates the built output and publishes it to GitHub Pages on
+# every push to main. The custom domain (vous.agreely.ca) is carried by dist/CNAME.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deploy at a time; a newer push supersedes an in-flight one.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate build output
+        run: |
+          test -f dist/index.html    || { echo "FAIL: dist/index.html (FR landing) missing"; exit 1; }
+          test -f dist/en/index.html || { echo "FAIL: dist/en/index.html (EN landing) missing"; exit 1; }
+          test -f dist/sitemap.xml   || { echo "FAIL: dist/sitemap.xml missing"; exit 1; }
+          test -f dist/robots.txt    || { echo "FAIL: dist/robots.txt missing"; exit 1; }
+          # House rule: no em-dash (U+2014) or en-dash (U+2013) anywhere in the shipped text.
+          python3 - <<'PY'
+          import pathlib, sys
+          exts = {".html", ".css", ".js", ".json", ".xml", ".txt", ".webmanifest"}
+          bad = []
+          for p in pathlib.Path("dist").rglob("*"):
+              if p.is_file() and p.suffix.lower() in exts:
+                  t = p.read_text(encoding="utf-8", errors="ignore")
+                  if "—" in t or "–" in t:
+                      bad.append(str(p))
+          if bad:
+              print("FAIL: em/en-dash found in:", ", ".join(bad)); sys.exit(1)
+          print("OK: no em/en-dash in dist")
+          PY
+          # Guarantee the custom domain is in the artifact even if the committed dist lacks it.
+          echo "vous.agreely.ca" > dist/CNAME
+          echo "OK: dist validated, CNAME = $(cat dist/CNAME)"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
