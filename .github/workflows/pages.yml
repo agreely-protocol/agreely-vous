@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 # The site is a static Zephyrus Leaf build. dist/ is committed (the house pattern),
 # so this pipeline validates the built output and publishes it to GitHub Pages on
-# every push to main. The custom domain (vous.agreely.ca) is carried by dist/CNAME.
+# every push to main. The custom domain (you.agreely.ca) is carried by dist/CNAME.
 
 on:
   push:
@@ -50,7 +50,7 @@ jobs:
           print("OK: no em/en-dash in dist")
           PY
           # Guarantee the custom domain is in the artifact even if the committed dist lacks it.
-          echo "vous.agreely.ca" > dist/CNAME
+          echo "you.agreely.ca" > dist/CNAME
           echo "OK: dist validated, CNAME = $(cat dist/CNAME)"
 
       - name: Configure Pages

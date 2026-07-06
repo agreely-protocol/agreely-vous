@@ -1,4 +1,4 @@
-# Agreely, pour les citoyens (vous.agreely.ca)
+# Agreely, pour les citoyens (you.agreely.ca)
 
 The citizen-facing landing for **Agreely**, a warmer static sibling of the
 business site (`agreely-site`). Built with [Zephyrus Leaf](https://leaf.ophelios.com)
@@ -31,5 +31,5 @@ scroll reveals, opt-in dark mode. No new hex values beyond the token set.
 
 Static, and **deferred**. The build output (`dist/`) is committed to the repo
 (the Leaf pattern). When ready, point any static host at `dist/`. Domain:
-`vous.agreely.ca`. The primary app link is `my.agreely.ca`; the verifier is
+`you.agreely.ca`. The primary app link is `my.agreely.ca`; the verifier is
 `verify.agreely.ca`; the business site is `agreely.ca`.

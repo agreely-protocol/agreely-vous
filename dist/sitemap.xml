@@ -2,15 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vous.agreely.ca/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vous.agreely.ca/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vous.agreely.ca/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vous.agreely.ca/"/>
+    <loc>https://you.agreely.ca/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://you.agreely.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://you.agreely.ca/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://you.agreely.ca/"/>
   </url>
   <url>
-    <loc>https://vous.agreely.ca/en/</loc>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://vous.agreely.ca/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://vous.agreely.ca/en/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vous.agreely.ca/"/>
+    <loc>https://you.agreely.ca/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://you.agreely.ca/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://you.agreely.ca/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://you.agreely.ca/"/>
   </url>
 </urlset>

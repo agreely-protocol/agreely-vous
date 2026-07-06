@@ -1,5 +1,5 @@
 LEAF ?= leaf
-PROD_URL := https://vous.agreely.ca
+PROD_URL := https://you.agreely.ca
 
 # agreely-vous: a single static landing (FR at /, EN under /en/). No docs tree,
 # so the build is just `leaf build` plus a smoke-test gate. The gate enforces the
@@ -40,7 +40,7 @@ check: build
 	@grep -q 'hreflang="x-default"' dist/index.html || (echo "FAIL: landing missing x-default hreflang" && exit 1)
 	@grep -q '<html lang="fr"' dist/index.html || (echo "FAIL: FR landing not lang=fr" && exit 1)
 	@grep -q '<html lang="en"' dist/en/index.html || (echo "FAIL: EN landing not lang=en" && exit 1)
-	@grep -q 'vous.agreely.ca/en/' dist/sitemap.xml || (echo "FAIL: sitemap missing EN /en/ URL" && exit 1)
+	@grep -q 'you.agreely.ca/en/' dist/sitemap.xml || (echo "FAIL: sitemap missing EN /en/ URL" && exit 1)
 	@! grep -q '/404/' dist/sitemap.xml || (echo "FAIL: 404 error page leaked into sitemap" && exit 1)
 	@# ---- No em-dash, no en-dash, no leaked PHP errors --------------------------
 	@! grep -rl $$'\xe2\x80\x94' dist --include='*.html' >/dev/null 2>&1 || (echo "FAIL: em-dash (U+2014) found in dist" && exit 1)

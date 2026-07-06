@@ -24,7 +24,7 @@ leaf:
   content_path: "content"
   output_path: "dist"
   base_url: ""
-  production_url: "https://vous.agreely.ca"
+  production_url: "https://you.agreely.ca"
   author: "Ophelios Studio"
   author_url: "https://ophelios.com"
   license: "Proprietary"
