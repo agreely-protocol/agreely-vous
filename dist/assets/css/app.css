@@ -44,6 +44,13 @@
     --search-overlay: rgba(20, 24, 27, 0.40);
     --code-tab-header: rgba(237, 241, 249, 0.6);
 
+    /* citizen landing surface tints (consumed by citizen.css; theme-agnostic) */
+    --nav-biz-ink: #47506A;        /* quiet "are you a business?" link, cooler than --text-muted */
+    --phone-bezel-top: #2b2f63;    /* app phone frame gradient, top */
+    --phone-bezel-bottom: #1a1d47; /* app phone frame gradient, bottom */
+    --band-manifeste: #F3EEF6;     /* warm-lilac mid-band behind the manifesto */
+    --footer-tagpill-ink: #EEC79A; /* amber tagpill text on the dark footer */
+
     --font-body: 'Inter', system-ui, -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     --ease: cubic-bezier(0.4, 0, 0.2, 1);
