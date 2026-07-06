@@ -1,0 +1,11 @@
+{*
+  Numbered mono section label, e.g. "01 · Le probleme".
+  Usage: {include 'partials/section-label.latte', number: '01', label: 'Le probleme'}
+*}
+{var $number = $number ?? '01'}
+{var $label = $label ?? ''}
+<span class="section-label">
+    <span class="section-label-number">{$number}</span>
+    <span class="section-label-dot" aria-hidden="true">&middot;</span>
+    <span class="section-label-text">{$label}</span>
+</span>

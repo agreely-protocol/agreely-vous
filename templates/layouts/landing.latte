@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{$currentLocale ?? 'fr'}">
+<head>
+    {include '../partials/head.latte'}
+    {block head}{/block}
+</head>
+<body class="landing-body" data-surface="landing">
+    <a href="#main" class="sr-only focus:not-sr-only">{($currentLocale ?? 'fr') === 'fr' ? 'Aller au contenu' : 'Skip to content'}</a>
+
+    {include '../partials/nav.latte', docsMode: false}
+
+    {block content}{/block}
+
+    {include '../partials/footer.latte'}
+
+    <script defer src="/assets/js/site.js"></script>
+    <script defer src="/assets/js/landing.js"></script>
+    <script defer src="/assets/js/lang-switcher.js"></script>
+    <script defer src="/assets/js/copy-field.js"></script>
+    <script defer src="/assets/js/share.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+{*
+  Agreely (citizens) head. Middle dot as the separator, NEVER an em-dash.
+  Locale-aware canonical + hreflang (fr + en + x-default). FR is the default
+  locale at the root; EN lives under /en/. Single-page site, so relPath is
+  always "/". OG cards are per-locale (og-fr.png / og-en.png).
+*}
+{var $dl = $defaultLocale ?? 'fr'}
+{var $cur = $currentLocale ?? $dl}
+{var $lp = $cur === $dl ? '' : '/' . $cur}
+
+{var $siteName = $leafName ?? 'Agreely'}
+{var $prodUrl = $leafProductionUrl ?? 'https://vous.agreely.ca'}
+{var $relPath = '/'}
+
+{var $metaTitle = $cur === 'fr'
+    ? $siteName . ' &middot; Vos consentements, vos preuves'
+    : $siteName . ' &middot; Your consents, your proof'}
+{var $metaDescription = $cur === 'fr'
+    ? 'Combien d\'entreprises detiennent vos renseignements en ce moment ? Agreely vous remet un recu pour chaque oui, vous montre qui les consulte, et vous laisse retirer votre accord quand vous le voulez.'
+    : 'How many companies hold your personal information right now? Agreely gives you a receipt for every yes, shows you who looks at it, and lets you take your consent back whenever you want.'}
+{var $tagline = $cur === 'fr' ? 'Vos consentements, vos preuves' : 'Your consents, your proof'}
+
+{var $canonical = $prodUrl . $lp . $relPath}
+{var $ogLocale = $cur === 'fr' ? 'fr_CA' : ($cur === 'en' ? 'en_CA' : $cur)}
+{var $ogImage = $prodUrl . '/assets/og/og-' . ($cur === 'en' ? 'en' : 'fr') . '.png'}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{* No-FOUC theme shim: set [data-theme] on <html> before first paint. *}
+<script n:syntax="off">(function(){try{var k='leaf-theme',s=localStorage.getItem(k),t=(s==='light'||s==='dark')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta name="leaf-base-url" content="{$leafBaseUrl}">
+<title>{$metaTitle|noescape}</title>
+<meta name="title" content="{$metaTitle|noescape}">
+<meta name="description" content="{$metaDescription|noescape}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#3A35B5">
+
+<link rel="canonical" href="{$canonical}">
+{if isset($supportedLocales) && count($supportedLocales) > 1}
+{foreach $supportedLocales as $loc}
+<link rel="alternate" hreflang="{$loc}" href="{$prodUrl}{$loc === $dl ? '' : '/' . $loc}{$relPath}">
+{/foreach}
+<link rel="alternate" hreflang="x-default" href="{$prodUrl}{$relPath}">
+{/if}
+
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="{$siteName}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{$canonical}">
+<meta property="og:title" content="{$metaTitle|noescape}">
+<meta property="og:description" content="{$metaDescription|noescape}">
+<meta property="og:site_name" content="{$siteName}">
+<meta property="og:locale" content="{$ogLocale}">
+{if isset($supportedLocales)}{foreach $supportedLocales as $loc}{if $loc !== $cur}
+<meta property="og:locale:alternate" content="{$loc === 'fr' ? 'fr_CA' : ($loc === 'en' ? 'en_CA' : $loc)}">
+{/if}{/foreach}{/if}
+<meta property="og:image" content="{$ogImage}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Agreely &middot; {$tagline}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{$canonical}">
+<meta name="twitter:title" content="{$metaTitle|noescape}">
+<meta name="twitter:description" content="{$metaDescription|noescape}">
+<meta name="twitter:image" content="{$ogImage}">
+
+{if $cur === 'fr'}
+<script type="application/ld+json" n:syntax="off">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vous.agreely.ca/#organization",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "logo": "https://vous.agreely.ca/favicon/icon-512.png",
+      "description": "Agreely donne aux citoyens du Quebec un recu pour chaque consentement, la visibilite sur qui consulte leurs renseignements, et le pouvoir de retirer leur accord.",
+      "parentOrganization": { "@type": "Organization", "name": "Ophelios Studio", "url": "https://ophelios.com" },
+      "sameAs": ["https://agreely.ca", "https://ophelios.com"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vous.agreely.ca/#website",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "inLanguage": ["fr-CA", "en-CA"],
+      "publisher": { "@id": "https://vous.agreely.ca/#organization" }
+    }
+  ]
+}
+</script>
+{else}
+<script type="application/ld+json" n:syntax="off">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vous.agreely.ca/#organization",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "logo": "https://vous.agreely.ca/favicon/icon-512.png",
+      "description": "Agreely gives Quebec citizens a receipt for every consent, visibility into who looks at their information, and the power to take their consent back.",
+      "parentOrganization": { "@type": "Organization", "name": "Ophelios Studio", "url": "https://ophelios.com" },
+      "sameAs": ["https://agreely.ca", "https://ophelios.com"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vous.agreely.ca/#website",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "inLanguage": ["fr-CA", "en-CA"],
+      "publisher": { "@id": "https://vous.agreely.ca/#organization" }
+    }
+  ]
+}
+</script>
+{/if}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/app.css">
+<link rel="stylesheet" href="/assets/css/citizen.css">
+<script src="/assets/js/theme.js"></script>
+
+<script defer src="https://analytics.ophelios.com/script.js" data-website-id="c510bdef-b8c8-4c5d-af2b-62596ba52e50"></script>

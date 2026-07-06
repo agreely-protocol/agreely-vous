@@ -1,0 +1,122 @@
+{*
+  Agreely island navigation, citizen variant. Same family signature as the
+  business site: a centered spread at rest that docks into a blurred pill on
+  scroll (site.js), an IntersectionObserver scrollspy that sets
+  data-active-section. Easing cubic-bezier(0.4,0,0.2,1).
+
+  Citizen differences: a SINGLE primary CTA "Ouvrir mon appli" (my.agreely.ca)
+  and a quiet "Vous etes une entreprise ?" text link to agreely.ca. Section
+  links point at the citizen sections. Bilingual (FR default at root, EN under
+  /en/); the FR/EN selector is rewritten by lang-switcher.js. Tabler icons only.
+*}
+{var $dl = $defaultLocale ?? 'fr'}
+{var $cur = $currentLocale ?? $dl}
+{var $lp = $cur === $dl ? '' : '/' . $cur}
+{var $sa = $standalone ?? false}
+{var $homeBase = $sa ? $lp . '/' : ''}
+
+{var $themeBtn = '<button id="themeToggle" class="isl-icon-btn js-theme-toggle" type="button" aria-label="' . localize('nav.toggle_theme') . '"></button>'}
+{var $themeBtnPill = '<button id="themeTogglePill" class="isl-icon-btn js-theme-toggle" type="button" aria-label="' . localize('nav.toggle_theme') . '"></button>'}
+{var $themeBtnMobile = '<button id="themeToggleMobile" class="isl-icon-btn js-theme-toggle" type="button" aria-label="' . localize('nav.toggle_theme') . '"></button>'}
+
+{* Primary app CTA (used in spread + pill). Opens the citizen PWA. *}
+{define app-cta}
+<a href="https://my.agreely.ca" class="isl-cta{if $sm ?? false} isl-cta-sm{/if}" target="_blank" rel="noopener noreferrer">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+    <span>{localize('nav.open_app')}</span>
+</a>
+{/define}
+
+<nav id="siteHeader" class="isl-nav" data-mode="landing" aria-label="Primary">
+    {* Spread (at rest) *}
+    <div class="isl-spread">
+        <div class="isl-spread-row">
+            <div class="isl-left">
+                <a href="{$lp}/" class="isl-logo-link" aria-label="{localize('nav.home_aria')}">{include 'wordmark.latte'}</a>
+            </div>
+
+            <div class="isl-pill">
+                <a href="{$homeBase}#problem" class="isl-link" data-section="problem">{localize('nav.problem')}</a>
+                <a href="{$homeBase}#gifts" class="isl-link" data-section="gifts">{localize('nav.gifts')}</a>
+                <a href="{$homeBase}#manifeste" class="isl-link" data-section="manifeste">{localize('nav.manifesto')}</a>
+                <a href="{$homeBase}#faq" class="isl-link" data-section="faq">{localize('nav.faq')}</a>
+            </div>
+
+            <div class="isl-right">
+                <a href="https://agreely.ca" class="isl-biz-link" target="_blank" rel="noopener noreferrer">{localize('nav.for_business')}</a>
+                {include lang-block}
+                {$themeBtn|noescape}
+                {include app-cta}
+            </div>
+        </div>
+    </div>
+
+    {* Pill (on scroll) *}
+    <div class="isl-pillwrap" aria-hidden="true">
+        <div class="isl-pill isl-pill-scrolled">
+            <a href="{$lp}/" class="isl-icon-link" aria-label="{localize('nav.home_aria')}">{include 'wordmark.latte', variant: 'mark'}</a>
+            <a href="{$homeBase}#problem" class="isl-link" data-section="problem">{localize('nav.problem')}</a>
+            <a href="{$homeBase}#gifts" class="isl-link" data-section="gifts">{localize('nav.gifts')}</a>
+            <a href="{$homeBase}#manifeste" class="isl-link" data-section="manifeste">{localize('nav.manifesto')}</a>
+            <a href="{$homeBase}#faq" class="isl-link" data-section="faq">{localize('nav.faq')}</a>
+            <span class="isl-sep"></span>
+            {$themeBtnPill|noescape}
+            {include app-cta, sm: true}
+            {include lang-block}
+        </div>
+    </div>
+
+    {* Mobile bar *}
+    <div class="isl-mobile">
+        <div class="isl-left">
+            <a href="{$lp}/" class="isl-logo-link" aria-label="{localize('nav.home_aria')}">{include 'wordmark.latte'}</a>
+        </div>
+        <div class="isl-right">
+            {$themeBtnMobile|noescape}
+            <button id="islMenuToggle" class="isl-icon-btn isl-menu-toggle" type="button" aria-expanded="false" aria-controls="islMobileMenu" aria-label="{localize('nav.menu')}">
+                <svg class="isl-menu-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+                <svg class="isl-menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+            </button>
+        </div>
+    </div>
+
+    {* Mobile menu (hamburger-opened, focus-trapped) *}
+    <div id="islMobileMenu" class="isl-mobile-menu" hidden>
+        <div class="isl-mobile-panel" role="dialog" aria-modal="true" aria-label="{localize('nav.menu')}">
+            <div class="isl-mobile-links">
+                <a href="{$homeBase}#problem" data-section="problem">{localize('nav.problem')}</a>
+                <a href="{$homeBase}#gifts" data-section="gifts">{localize('nav.gifts')}</a>
+                <a href="{$homeBase}#manifeste" data-section="manifeste">{localize('nav.manifesto')}</a>
+                <a href="{$homeBase}#faq" data-section="faq">{localize('nav.faq')}</a>
+            </div>
+            <div class="isl-mobile-foot">
+                <a href="https://my.agreely.ca" class="isl-cta isl-cta-block" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z" /><path d="M11 4h2" /><path d="M12 17v.01" /></svg>
+                    <span>{localize('nav.open_app')}</span>
+                </a>
+                <a href="https://agreely.ca" class="isl-mobile-book" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0" /><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16" /><path d="M9 8l1 0" /><path d="M9 12l1 0" /><path d="M9 16l1 0" /><path d="M14 8l1 0" /><path d="M14 12l1 0" /><path d="M14 16l1 0" /></svg>
+                    <span>{localize('nav.for_business')}</span>
+                </a>
+                {include lang-block}
+            </div>
+        </div>
+    </div>
+</nav>
+
+{*
+  FR/EN selector. Active locale renders as text; the other as a link.
+  lang-switcher.js rewrites the href to the SAME page in the other locale.
+*}
+{define lang-block}
+<div class="isl-lang" data-default="{$dl}" role="group" aria-label="{localize('lang.switch_aria')}">
+    {foreach $supportedLocales as $loc}
+        {if $loc === $cur}
+        <span class="isl-lang-current" aria-current="true">{localize('lang.' . $loc)}</span>
+        {else}
+        <a class="isl-lang-link lang-switch" data-locale="{$loc}" data-default="{$dl}" href="{$loc === $dl ? '/' : '/' . $loc . '/'}">{localize('lang.' . $loc)}</a>
+        {/if}
+        {if !$iterator->last}<span class="isl-lang-sep" aria-hidden="true">/</span>{/if}
+    {/foreach}
+</div>
+{/define}
