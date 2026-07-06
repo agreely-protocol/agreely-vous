@@ -1,0 +1,17 @@
+{
+  "name": "Agreely - pour les citoyens",
+  "short_name": "Agreely",
+  "description": "Un recu pour chaque oui, et le pouvoir de retirer votre accord quand vous le voulez.",
+  "lang": "fr-CA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F6F8FC",
+  "theme_color": "#3A35B5",
+  "icons": [
+    { "src": "/favicon/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/favicon/icon-192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/favicon/icon-512.png", "type": "image/png", "sizes": "512x512" },
+    { "src": "/favicon/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ]
+}
