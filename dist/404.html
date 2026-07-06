@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var k='leaf-theme',s=localStorage.getItem(k),t=(s==='light'||s==='dark')?s:(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<meta name="leaf-base-url" content="">
+<title>Agreely &middot; Vos consentements, vos preuves</title>
+<meta name="title" content="Agreely &middot; Vos consentements, vos preuves">
+<meta name="description" content="Combien d&apos;entreprises detiennent vos renseignements en ce moment ? Agreely vous remet un recu pour chaque oui, vous montre qui les consulte, et vous laisse retirer votre accord quand vous le voulez.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#3A35B5">
+
+<link rel="canonical" href="https://vous.agreely.ca/">
+<link rel="alternate" hreflang="fr" href="https://vous.agreely.ca/">
+<link rel="alternate" hreflang="en" href="https://vous.agreely.ca/en/">
+<link rel="alternate" hreflang="x-default" href="https://vous.agreely.ca/">
+
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="apple-mobile-web-app-title" content="Agreely">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vous.agreely.ca/">
+<meta property="og:title" content="Agreely &middot; Vos consentements, vos preuves">
+<meta property="og:description" content="Combien d&apos;entreprises detiennent vos renseignements en ce moment ? Agreely vous remet un recu pour chaque oui, vous montre qui les consulte, et vous laisse retirer votre accord quand vous le voulez.">
+<meta property="og:site_name" content="Agreely">
+<meta property="og:locale" content="fr_CA">
+<meta property="og:locale:alternate" content="en_CA">
+<meta property="og:image" content="https://vous.agreely.ca/assets/og/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Agreely &middot; Vos consentements, vos preuves">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://vous.agreely.ca/">
+<meta name="twitter:title" content="Agreely &middot; Vos consentements, vos preuves">
+<meta name="twitter:description" content="Combien d&apos;entreprises detiennent vos renseignements en ce moment ? Agreely vous remet un recu pour chaque oui, vous montre qui les consulte, et vous laisse retirer votre accord quand vous le voulez.">
+<meta name="twitter:image" content="https://vous.agreely.ca/assets/og/og-fr.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://vous.agreely.ca/#organization",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "logo": "https://vous.agreely.ca/favicon/icon-512.png",
+      "description": "Agreely donne aux citoyens du Quebec un recu pour chaque consentement, la visibilite sur qui consulte leurs renseignements, et le pouvoir de retirer leur accord.",
+      "parentOrganization": { "@type": "Organization", "name": "Ophelios Studio", "url": "https://ophelios.com" },
+      "sameAs": ["https://agreely.ca", "https://ophelios.com"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vous.agreely.ca/#website",
+      "name": "Agreely",
+      "url": "https://vous.agreely.ca",
+      "inLanguage": ["fr-CA", "en-CA"],
+      "publisher": { "@id": "https://vous.agreely.ca/#organization" }
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/assets/css/app.css">
+<link rel="stylesheet" href="/assets/css/citizen.css">
+<script src="/assets/js/theme.js"></script>
+
+<script defer src="https://analytics.ophelios.com/script.js" data-website-id="c510bdef-b8c8-4c5d-af2b-62596ba52e50"></script>
+<style>
+    .error-container { min-height: calc(100vh - 4rem - 200px); display: flex; align-items: center; justify-content: center; }
+    .error-code { font-size: 8rem; font-weight: 800; line-height: 1; background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .error-title { font-size: 1.5rem; font-weight: 600; color: var(--text-bright); margin-top: 0.5rem; }
+    .error-message { color: var(--text-muted); margin-top: 0.75rem; max-width: 28rem; }
+    .error-links { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .error-link-primary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; background: var(--accent); color: white; border-radius: 0.5rem; font-weight: 500; font-size: 0.875rem; text-decoration: none; transition: background 0.15s; }
+    .error-link-primary:hover { background: var(--accent-light); }
+    .error-link-secondary { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.625rem 1.25rem; border: 1px solid var(--border); color: var(--text); border-radius: 0.5rem; font-weight: 500; font-size: 0.875rem; text-decoration: none; transition: border-color 0.15s, color 0.15s; }
+    .error-link-secondary:hover { border-color: var(--border-accent); color: var(--text-bright); }
+</style>
+</head>
+<body class="landing-body" data-surface="landing">
+    <a href="#main" class="sr-only focus:not-sr-only">Aller au contenu</a>
+
+
+
+<nav id="siteHeader" class="isl-nav" data-mode="landing" aria-label="Primary">
+    <div class="isl-spread">
+        <div class="isl-spread-row">
+            <div class="isl-left">
+                <a href="/" class="isl-logo-link" aria-label="Accueil Agreely, pour les citoyens"><span class="isl-wordmark isl-wordmark-full" aria-label="Agreely citoyens">
+    <span class="isl-wordmark-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(16,16) scale(0.024291) translate(-713,-714)">
+                <g stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <path d="M283 772 L283 690 A430 430 0 0 1 1143 690 L1143 1167"></path>
+                    <path d="M283 896 L283 1168"></path>
+                    <path d="M430 833 L430 690 A283 283 0 0 1 996 690 L996 833"></path>
+                    <path d="M430 957 L430 1097"></path>
+                    <path d="M996 957 L996 1097"></path>
+                    <path d="M577 772 L577 690 A136 136 0 0 1 849 690 L849 772"></path>
+                    <path d="M577 896 L577 986"></path>
+                    <path d="M849 896 L849 986"></path>
+                </g>
+                <g fill="currentColor">
+                    <circle cx="577" cy="1102" r="40"></circle>
+                    <circle cx="849" cy="1102" r="40"></circle>
+                </g>
+            </g>
+        </svg>
+    </span>
+    <span class="isl-wordmark-text">Agreely</span>
+    <span class="isl-wordmark-tag" aria-hidden="true"><span class="isl-wordmark-tag-dot">&middot;</span>citoyens</span>
+</span>
+</a>
+            </div>
+
+            <div class="isl-pill">
+                <a href="#problem" class="isl-link" data-section="problem">Le problème</a>
+                <a href="#gifts" class="isl-link" data-section="gifts">Ce que vous obtenez</a>
+                <a href="#manifeste" class="isl-link" data-section="manifeste">Le manifeste</a>
+                <a href="#faq" class="isl-link" data-section="faq">Questions</a>
+            </div>
+
+            <div class="isl-right">
+                <a href="https://agreely.ca" class="isl-biz-link" target="_blank" rel="noopener noreferrer">Vous êtes une entreprise ?</a>
+<div class="isl-lang" data-default="fr" role="group" aria-label="Changer de langue">
+        <span class="isl-lang-current" aria-current="true">FR</span>
+        <span class="isl-lang-sep" aria-hidden="true">/</span>
+        <a class="isl-lang-link lang-switch" data-locale="en" data-default="fr" href="/en/">EN</a>
+
+</div>
+                <button id="themeToggle" class="isl-icon-btn js-theme-toggle" type="button" aria-label="Changer de thème"></button>
+<a href="https://my.agreely.ca" class="isl-cta" target="_blank" rel="noopener noreferrer">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z"></path><path d="M11 4h2"></path><path d="M12 17v.01"></path></svg>
+    <span>Ouvrir mon appli</span>
+</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="isl-pillwrap" aria-hidden="true">
+        <div class="isl-pill isl-pill-scrolled">
+            <a href="/" class="isl-icon-link" aria-label="Accueil Agreely, pour les citoyens"><span class="isl-wordmark isl-wordmark-mark" aria-label="Agreely citoyens">
+    <span class="isl-wordmark-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(16,16) scale(0.024291) translate(-713,-714)">
+                <g stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <path d="M283 772 L283 690 A430 430 0 0 1 1143 690 L1143 1167"></path>
+                    <path d="M283 896 L283 1168"></path>
+                    <path d="M430 833 L430 690 A283 283 0 0 1 996 690 L996 833"></path>
+                    <path d="M430 957 L430 1097"></path>
+                    <path d="M996 957 L996 1097"></path>
+                    <path d="M577 772 L577 690 A136 136 0 0 1 849 690 L849 772"></path>
+                    <path d="M577 896 L577 986"></path>
+                    <path d="M849 896 L849 986"></path>
+                </g>
+                <g fill="currentColor">
+                    <circle cx="577" cy="1102" r="40"></circle>
+                    <circle cx="849" cy="1102" r="40"></circle>
+                </g>
+            </g>
+        </svg>
+    </span>
+</span>
+</a>
+            <a href="#problem" class="isl-link" data-section="problem">Le problème</a>
+            <a href="#gifts" class="isl-link" data-section="gifts">Ce que vous obtenez</a>
+            <a href="#manifeste" class="isl-link" data-section="manifeste">Le manifeste</a>
+            <a href="#faq" class="isl-link" data-section="faq">Questions</a>
+            <span class="isl-sep"></span>
+            <button id="themeTogglePill" class="isl-icon-btn js-theme-toggle" type="button" aria-label="Changer de thème"></button>
+<a href="https://my.agreely.ca" class="isl-cta isl-cta-sm" target="_blank" rel="noopener noreferrer">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z"></path><path d="M11 4h2"></path><path d="M12 17v.01"></path></svg>
+    <span>Ouvrir mon appli</span>
+</a>
+<div class="isl-lang" data-default="fr" role="group" aria-label="Changer de langue">
+        <span class="isl-lang-current" aria-current="true">FR</span>
+        <span class="isl-lang-sep" aria-hidden="true">/</span>
+        <a class="isl-lang-link lang-switch" data-locale="en" data-default="fr" href="/en/">EN</a>
+
+</div>
+        </div>
+    </div>
+
+    <div class="isl-mobile">
+        <div class="isl-left">
+            <a href="/" class="isl-logo-link" aria-label="Accueil Agreely, pour les citoyens"><span class="isl-wordmark isl-wordmark-full" aria-label="Agreely citoyens">
+    <span class="isl-wordmark-mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(16,16) scale(0.024291) translate(-713,-714)">
+                <g stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                    <path d="M283 772 L283 690 A430 430 0 0 1 1143 690 L1143 1167"></path>
+                    <path d="M283 896 L283 1168"></path>
+                    <path d="M430 833 L430 690 A283 283 0 0 1 996 690 L996 833"></path>
+                    <path d="M430 957 L430 1097"></path>
+                    <path d="M996 957 L996 1097"></path>
+                    <path d="M577 772 L577 690 A136 136 0 0 1 849 690 L849 772"></path>
+                    <path d="M577 896 L577 986"></path>
+                    <path d="M849 896 L849 986"></path>
+                </g>
+                <g fill="currentColor">
+                    <circle cx="577" cy="1102" r="40"></circle>
+                    <circle cx="849" cy="1102" r="40"></circle>
+                </g>
+            </g>
+        </svg>
+    </span>
+    <span class="isl-wordmark-text">Agreely</span>
+    <span class="isl-wordmark-tag" aria-hidden="true"><span class="isl-wordmark-tag-dot">&middot;</span>citoyens</span>
+</span>
+</a>
+        </div>
+        <div class="isl-right">
+            <button id="themeToggleMobile" class="isl-icon-btn js-theme-toggle" type="button" aria-label="Changer de thème"></button>
+            <button id="islMenuToggle" class="isl-icon-btn isl-menu-toggle" type="button" aria-expanded="false" aria-controls="islMobileMenu" aria-label="Menu">
+                <svg class="isl-menu-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6l16 0"></path><path d="M4 12l16 0"></path><path d="M4 18l16 0"></path></svg>
+                <svg class="isl-menu-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6l-12 12"></path><path d="M6 6l12 12"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <div id="islMobileMenu" class="isl-mobile-menu" hidden>
+        <div class="isl-mobile-panel" role="dialog" aria-modal="true" aria-label="Menu">
+            <div class="isl-mobile-links">
+                <a href="#problem" data-section="problem">Le problème</a>
+                <a href="#gifts" data-section="gifts">Ce que vous obtenez</a>
+                <a href="#manifeste" data-section="manifeste">Le manifeste</a>
+                <a href="#faq" data-section="faq">Questions</a>
+            </div>
+            <div class="isl-mobile-foot">
+                <a href="https://my.agreely.ca" class="isl-cta isl-cta-block" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14z"></path><path d="M11 4h2"></path><path d="M12 17v.01"></path></svg>
+                    <span>Ouvrir mon appli</span>
+                </a>
+                <a href="https://agreely.ca" class="isl-mobile-book" target="_blank" rel="noopener noreferrer">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0"></path><path d="M5 21v-16a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v16"></path><path d="M9 8l1 0"></path><path d="M9 12l1 0"></path><path d="M9 16l1 0"></path><path d="M14 8l1 0"></path><path d="M14 12l1 0"></path><path d="M14 16l1 0"></path></svg>
+                    <span>Vous êtes une entreprise ?</span>
+                </a>
+<div class="isl-lang" data-default="fr" role="group" aria-label="Changer de langue">
+        <span class="isl-lang-current" aria-current="true">FR</span>
+        <span class="isl-lang-sep" aria-hidden="true">/</span>
+        <a class="isl-lang-link lang-switch" data-locale="en" data-default="fr" href="/en/">EN</a>
+
+</div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<div class="error-container">
+    <div class="text-center">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page not found</h1>
+        <p class="error-message">
+            The page you're looking for doesn't exist or has been moved.
+            Maybe it was blown away by a gentle breeze.
+        </p>
+        <div class="error-links">
+            <a href="/" class="error-link-primary">Documentation</a>
+        </div>
+    </div>
+</div>
+
+<footer class="isl-footer" data-footer-reveal>
+    <span class="isl-footer-dots" aria-hidden="true"></span>
+    <span class="isl-footer-glow" aria-hidden="true"></span>
+    <div class="isl-footer-top container">
+        <div class="isl-footer-lead">
+            <a href="/" class="isl-footer-brand" aria-label="Accueil Agreely, pour les citoyens">
+                <span class="isl-footer-mark" aria-hidden="true">
+                    <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="translate(16,16) scale(0.024291) translate(-713,-714)">
+                            <g stroke="currentColor" stroke-width="80" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                                <path d="M283 772 L283 690 A430 430 0 0 1 1143 690 L1143 1167"></path>
+                                <path d="M283 896 L283 1168"></path>
+                                <path d="M430 833 L430 690 A283 283 0 0 1 996 690 L996 833"></path>
+                                <path d="M430 957 L430 1097"></path>
+                                <path d="M996 957 L996 1097"></path>
+                                <path d="M577 772 L577 690 A136 136 0 0 1 849 690 L849 772"></path>
+                                <path d="M577 896 L577 986"></path>
+                                <path d="M849 896 L849 986"></path>
+                            </g>
+                            <g fill="currentColor"><circle cx="577" cy="1102" r="40"></circle><circle cx="849" cy="1102" r="40"></circle></g>
+                        </g>
+                    </svg>
+                </span>
+                <span class="isl-footer-name">Agreely</span>
+                <span class="isl-footer-tagpill">citoyens</span>
+            </a>
+            <p class="isl-footer-tag">Un reçu pour chaque « oui », et le pouvoir de retirer votre accord quand vous le voulez. Agreely, du côté des gens.</p>
+            <a href="https://my.agreely.ca" class="isl-footer-cta" target="_blank" rel="noopener noreferrer">
+                Ouvrir mon appli
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0"></path><path d="M13 18l6 -6"></path><path d="M13 6l6 6"></path></svg>
+            </a>
+
+            <div class="isl-footer-socials" role="list" aria-label="Réseaux sociaux d&apos;Ophelios">
+                <a href="https://linkedin.com/company/ophelios" class="isl-footer-social" target="_blank" rel="noopener" role="listitem" aria-label="LinkedIn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 11v5"></path><path d="M8 8v.01"></path><path d="M12 16v-5"></path><path d="M16 16v-3a2 2 0 0 0 -4 0"></path><path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4z"></path></svg>
+                </a>
+                <a href="https://x.com/ophelios_studio" class="isl-footer-social" target="_blank" rel="noopener" role="listitem" aria-label="X">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l11.733 16h4.267l-11.733 -16z"></path><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"></path></svg>
+                </a>
+                <a href="https://github.com/ophelios-studio" class="isl-footer-social" target="_blank" rel="noopener" role="listitem" aria-label="GitHub">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path></svg>
+                </a>
+            </div>
+        </div>
+
+        <nav class="isl-footer-cols" aria-label="Liens du pied de page">
+            <div class="isl-footer-col">
+                <span class="isl-footer-h">Pour vous</span>
+                <a href="https://my.agreely.ca" target="_blank" rel="noopener">Mon appli</a>
+                <a href="https://verify.agreely.ca" target="_blank" rel="noopener">Vérifier un reçu</a>
+                <a href="/#manifeste">Le manifeste</a>
+            </div>
+            <div class="isl-footer-col">
+                <span class="isl-footer-h">En savoir plus</span>
+                <a href="https://agreely.ca/docs" target="_blank" rel="noopener">C'est quoi la Loi 25</a>
+                <a href="/#gifts">Comment ça marche</a>
+            </div>
+            <div class="isl-footer-col">
+                <span class="isl-footer-h">Agreely</span>
+                <a href="https://agreely.ca" target="_blank" rel="noopener">Pour les entreprises</a>
+                <a href="https://ophelios.com" target="_blank" rel="noopener">Ophelios Studio</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="isl-footer-base container">
+        <div class="isl-footer-base-left">
+            <span class="isl-footer-copy">&copy; 2026 <a href="https://ophelios.com" target="_blank" rel="noopener">Ophelios Studio</a></span>
+            <span class="isl-footer-legal-sep" aria-hidden="true">&middot;</span>
+            <nav class="isl-footer-legal" aria-label="Mentions légales">
+                <a href="https://agreely.ca/confidentialite/" target="_blank" rel="noopener">
+                    <svg class="isl-footer-lock" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path><path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path><path d="M8 11v-4a4 4 0 1 1 8 0v4"></path></svg>
+                    Confidentialité
+                </a>
+                <span class="isl-footer-legal-sep" aria-hidden="true">&middot;</span>
+                <a href="https://agreely.ca/accessibilite/" target="_blank" rel="noopener">
+                    <svg class="isl-footer-a11y-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path><path d="M10 16.5l2 -3l2 3m-2 -3v-2l3 -1m-6 0l3 1"></path><circle cx="12" cy="7.5" r=".5" fill="currentColor"></circle></svg>
+                    Accessibilité
+                </a>
+            </nav>
+        </div>
+        <div class="isl-footer-base-right">
+            <span class="isl-footer-mono">v1.0.0</span>
+        </div>
+    </div>
+</footer>
+
+    <script defer src="/assets/js/site.js"></script>
+    <script defer src="/assets/js/landing.js"></script>
+    <script defer src="/assets/js/lang-switcher.js"></script>
+    <script defer src="/assets/js/copy-field.js"></script>
+    <script defer src="/assets/js/share.js"></script>
+</body>
+</html>
