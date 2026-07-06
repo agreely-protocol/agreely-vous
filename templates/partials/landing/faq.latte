@@ -30,6 +30,7 @@
             <details class="faq-item"{if $iterator->first} open{/if}>
                 <summary class="faq-q">
                     <span class="faq-q-text">{$item['q']}</span>
+                    {* Tabler: chevron-down *}
                     <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg>
                 </summary>
                 <div class="faq-a">
@@ -40,7 +41,8 @@
         </div>
 
         <p class="faq-disclaimer reveal-on-scroll">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9h.01" /><path d="M11 12h1v4h1" /><path d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0 -18z" /></svg>
+            {* Tabler: info-circle *}
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
             <span>{localize('faq.disclaimer')}</span>
         </p>
     </div>
